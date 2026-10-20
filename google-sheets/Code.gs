@@ -46,7 +46,7 @@ function doPost(e){
       const recent=sheet.getRange(Math.max(2,last-100),4,Math.min(last-1,101),1).getDisplayValues().flat();
       if(recent.includes(id))return ContentService.createTextOutput('duplicate');
     }
-    sheet.appendRow([new Date(),key,answer.replace(/^[=+\\-@]/,'\''+'$&'),id]);
+    sheet.appendRow([new Date(),key,answer.replace(/^[=+@-]/, "'    sheet.appendRow([new Date(),key,answer.replace(/^[=+\\-@]/,'\''+'$&'),id]);"),id]);
     return ContentService.createTextOutput('ok');
   }finally{lock.releaseLock();}
 }
