@@ -215,3 +215,19 @@
     min-height:55px;
   }
 }
+
+/* Photo-only stories (Xiao Ming / Amanda): original clear image, no projector dimming.
+   Keep the original positions of text, arrows and captions untouched. */
+@media (min-width:900px) {
+  #modal .story-full:not(:has(#nextQuestion:not(.hidden))) .story-bg {
+    opacity:1;
+    filter:none;
+    object-fit:contain;
+    object-position:center center;
+  }
+  #modal .story-full:not(:has(#nextQuestion:not(.hidden))) .story-shade {
+    background:transparent;
+    opacity:0;
+    pointer-events:none;
+  }
+}
