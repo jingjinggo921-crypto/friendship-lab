@@ -36,8 +36,15 @@
   #dm .dm-conversation {padding:12px 20px}
   #dm .prompt {padding:26px;margin:22px 0;border-radius:14px}
   #dm .bubble {max-width:65%}
-  /* Stories stay phone-shaped for correct image and poll placement. */
-  .story-modal .story-full {width:min(440px,100%);height:min(94dvh,900px)}
+  /* Restore the original story renderer on desktop; do not resize its internal image layer. */
+  #modal.story-modal {position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#191919ed}
+  #modal.story-modal.show {display:flex}
+  #modal .story-full {position:relative;width:min(100%,470px);height:100dvh;max-height:none;overflow:hidden;background:#171717;border-radius:0}
+  #modal #storyBg {position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;visibility:visible;opacity:1;z-index:0}
+  #modal .story-shade {z-index:1;pointer-events:none}
+  #modal .progress,#modal .story-head,#modal .story-content,#modal .story-bottom,
+  #modal .amanda-arrows,#modal .emo-live-text,#modal .amanda-second-caption {z-index:3}
+
 }
 @media (min-width:900px) and (max-width:1100px) {
  #home {column-gap:20px!important;padding-left:25px!important;padding-right:25px!important}
