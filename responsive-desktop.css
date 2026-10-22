@@ -11,13 +11,13 @@
   .bottom button {font-size:14px}
   .bottom .navicon {font-size:26px}
   #home.active {display:grid;grid-template-columns:minmax(0,1fr);max-width:100%;padding:0 max(24px,calc((100vw - 920px)/2)) 60px;align-content:start;row-gap:0}
-  #home > .stories {grid-column:1;grid-row:1;margin:0 calc(-1 * max(24px, (100vw - 920px)/2)) 34px);padding:20px max(32px,calc((100vw - 1120px)/2));background:#fff;gap:26px;overflow-x:auto}
+  #home > .stories {grid-column:1;grid-row:1;margin:0 calc(-1 * max(24px, calc((100vw - 920px)/2))) 34px;padding:20px max(32px,calc((100vw - 1120px)/2));background:#fff;gap:26px;overflow-x:auto}
   #home > .post-head,#home > .post-img,#home > .post-actions,#home > .caption {background:#fff}
   #home > :nth-child(2) {grid-column:1;grid-row:2;border-radius:16px 16px 0 0}
   #home > :nth-child(3) {grid-column:1;grid-row:3}
   #home > :nth-child(4) {grid-column:1;grid-row:4}
   #home > :nth-child(5) {grid-column:1;grid-row:5;border-radius:0 0 16px 16px}
-  #home > :nth-child(6) {grid-column:1;grid-row:6;border-radius:16px 16px 0 0}
+  #home > :nth-child(6) {grid-column:1;grid-row:6;border-radius:16px 16px 0 0;margin-top:30px}
   #home > :nth-child(7) {grid-column:1;grid-row:7}
   #home > :nth-child(8) {grid-column:1;grid-row:8}
   #home > :nth-child(9) {grid-column:1;grid-row:9;border-radius:0 0 16px 16px}
