@@ -1,54 +1,73 @@
-/* Friendship Lab responsive desktop layout; mobile keeps original design. */
+/* Desktop-first landscape layout, preserving all original mobile interactions. */
 @media (min-width: 900px) {
   html,body {width:100%;min-height:100%;overflow-x:hidden}
-  body {background:#f6f7fb}
-  .app {width:100%;max-width:none;min-height:100dvh;margin:0;box-shadow:none;background:#f6f7fb;padding-bottom:88px}
-  .top {position:sticky;top:0;z-index:55;height:74px;padding:0 clamp(26px,5vw,88px);background:#fff;box-shadow:0 1px 14px #0000000a}
-  .brand {font-size:33px}
-  .top-right {gap:26px}
-  .icon-btn {font-size:27px}
-  .bottom {width:100%;max-width:none;left:0;transform:none;height:74px;background:#fff;padding:0 12vw;box-shadow:0 -3px 18px #0000000b}
+  body {background:#f4f5f8}
+  .app {width:100%;max-width:none;min-height:100dvh;margin:0;background:#f4f5f8;box-shadow:none;padding-bottom:90px}
+  .top {height:76px;position:sticky;top:0;z-index:55;display:flex;padding:0 clamp(24px,5vw,96px);background:white;box-shadow:0 2px 14px #1111}
+  .brand {font-size:34px}
+  .top-right {gap:28px}
+  .icon-btn {font-size:28px}
+  .bottom {width:100%;max-width:none;left:0;transform:none;height:73px;padding:0 max(15%,140px);background:#fff;box-shadow:0 -2px 15px #0001}
   .bottom button {font-size:14px}
-  .bottom .navicon {font-size:26px}
-  #home.active {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,52px);padding:0 clamp(28px,5vw,96px) 48px;align-content:start}
-  #home > .stories {grid-column:1/-1;grid-row:1;margin:0 calc(-1*clamp(28px,5vw,96px)) 30px;padding:18px clamp(28px,5vw,96px);background:#fff;gap:23px}
-  #home > .post-head,#home > .post-img,#home > .post-actions,#home > .caption {background:#fff}
-  #home > :nth-child(2) {grid-column:1;grid-row:2;border-radius:16px 16px 0 0}
-  #home > :nth-child(3) {grid-column:1;grid-row:3}
-  #home > :nth-child(4) {grid-column:1;grid-row:4}
-  #home > :nth-child(5) {grid-column:1;grid-row:5;border-radius:0 0 16px 16px}
-  #home > :nth-child(6) {grid-column:2;grid-row:2;border-radius:16px 16px 0 0}
-  #home > :nth-child(7) {grid-column:2;grid-row:3}
-  #home > :nth-child(8) {grid-column:2;grid-row:4}
-  #home > :nth-child(9) {grid-column:2;grid-row:5;border-radius:0 0 16px 16px}
-  #home .post-img {width:100%;height:clamp(330px,38vw,720px);aspect-ratio:auto;object-fit:cover}
-  #home .post-head {padding:17px 19px}
-  #home .caption {font-size:16px;padding:8px 19px 24px}
-  #home .ring {width:78px;height:78px}
-  #threads.active {display:block;max-width:1200px;margin:0 auto;padding:22px 24px 40px}
-  #threads .thread-title {background:#fff;border-radius:14px 14px 0 0}
-  #threads .thread-post,#threads .prompt {background:#fff}
-  #threads .thread-post {padding:22px 26px;gap:16px}
-  #threads .thread-text {font-size:17px}
-  #threads .prompt {max-width:none;margin:26px 0;padding:26px;border-radius:14px}
-  #dm.active {display:block;max-width:1200px;margin:0 auto;padding:22px 24px 50px}
-  #dm .dm-head,#dm .section-label,#dm .dm-conversation,#dm .prompt {background:#fff}
-  #dm .dm-conversation {padding:12px 20px}
-  #dm .prompt {padding:26px;margin:22px 0;border-radius:14px}
-  #dm .bubble {max-width:65%}
-  /* Restore the original story renderer on desktop; do not resize its internal image layer. */
-  #modal.story-modal {position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#191919ed}
-  #modal.story-modal.show {display:flex}
-  #modal .story-full {position:relative;width:min(100%,470px);height:100dvh;max-height:none;overflow:hidden;background:#171717;border-radius:0}
-  #modal #storyBg {position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;visibility:visible;opacity:1;z-index:0}
-  #modal .story-shade {z-index:1;pointer-events:none}
-  #modal .progress,#modal .story-head,#modal .story-content,#modal .story-bottom,
-  #modal .amanda-arrows,#modal .emo-live-text,#modal .amanda-second-caption {z-index:3}
+  .bottom .navicon {font-size:27px}
 
+  /* One full-width row per feed post, in original DOM order. */
+  #home.active {display:grid;grid-template-columns:minmax(0,1fr);max-width:100%;padding:0 max(24px,calc((100vw - 1040px)/2)) 65px;align-content:start}
+  #home > .stories {grid-column:1;grid-row:1;margin:0 calc(-1 * max(24px,calc((100vw - 1040px)/2))) 26px;padding:16px max(30px,calc((100vw - 1160px)/2));gap:30px;background:#fff;overflow-x:auto;box-shadow:0 1px 4px #00000009}
+  #home .ring {width:83px;height:83px}
+  #home .story-trigger {font-size:13px}
+  #home > .post-head,#home > .post-img,#home > .post-actions,#home > .caption {grid-column:1;background:#fff}
+  #home > :nth-child(2) {grid-row:2;border-radius:16px 16px 0 0;padding:19px 25px}
+  #home > :nth-child(3) {grid-row:3}
+  #home > :nth-child(4) {grid-row:4}
+  #home > :nth-child(5) {grid-row:5;border-radius:0 0 16px 16px;padding:8px 24px 24px;margin-bottom:32px}
+  #home > :nth-child(6) {grid-row:6;border-radius:16px 16px 0 0;padding:19px 25px}
+  #home > :nth-child(7) {grid-row:7}
+  #home > :nth-child(8) {grid-row:8}
+  #home > :nth-child(9) {grid-row:9;border-radius:0 0 16px 16px;padding:8px 24px 24px}
+  #home .post-img {display:block;width:100%;height:auto;max-height:630px;aspect-ratio:16/9;object-fit:contain;background:#e9e9eb}
+  #home .caption {font-size:16px}
+  #home .post-actions {padding:15px 24px 8px}
+  #threads.active,#dm.active {display:block;width:min(1200px,calc(100% - 64px));margin:auto;padding:30px 0 55px}
+  #threads .thread-title,#threads .thread-post,#dm .dm-head,#dm .section-label {background:#fff}
+  #threads .thread-post {padding:22px 28px}
+  #threads .thread-text {font-size:17px}
+  #threads .prompt,#dm .prompt {background:#fff;padding:25px;border-radius:16px;margin:24px 0}
+  #dm .dm-conversation {background:#fff;padding:18px 24px}
+  #dm .bubble {max-width:70%}
+
+  /* Every story is a landscape window on desktop, not a phone-shaped pop-up. */
+  #modal.story-modal {position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#090b17ed}
+  #modal.story-modal.show {display:flex}
+  #modal .story-full {position:relative;width:min(96vw,1450px);max-width:none;height:min(88dvh,830px);max-height:none;min-height:480px;aspect-ratio:auto;margin:auto;border-radius:18px;overflow:hidden;background:#171a24;box-shadow:0 22px 75px #000a}
+  #modal .story-bg {position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;object-position:center;background:#171a24;opacity:1}
+  #modal .story-shade {position:absolute;inset:0;background:linear-gradient(#0008 0%,transparent 25%,transparent 65%,#000b)}
+  #modal .progress {top:16px;left:24px;right:24px}
+  #modal .story-head {top:33px;left:26px;right:25px}
+  #modal .story-head b {font-size:17px}
+  #modal .story-bottom {bottom:24px;left:25%;right:25%;max-width:700px;margin:auto}
+  #modal .amanda-arrows {left:25px;right:25px}
+  #modal .amanda-second-caption {left:8%;bottom:110px}
+
+  /* Poll and ranking stories: image/atmosphere on left, responses on right. */
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .story-bg {width:51%;height:100%;object-fit:cover;object-position:center}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .story-shade {background:linear-gradient(90deg,transparent 0%,#10131f77 48%,#11131d 53%,#11131d 100%)}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .story-content {position:absolute;top:13%;bottom:110px;left:53%;right:3%;width:auto;overflow-y:auto;max-height:none;padding:8px 16px 18px;color:#fff;z-index:9}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .story-content h2 {font-size:clamp(22px,2.1vw,31px);margin:5px 0 12px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .app-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .app-choice {min-height:92px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .poll {gap:8px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .poll button {min-height:47px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .rank-row {min-height:53px!important}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .count-editor {max-height:24dvh}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .next-btn {left:58%;width:34%;bottom:24px!important;min-height:49px;z-index:30}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .story-bottom {left:7%;right:56%;max-width:none}
 }
-@media (min-width:900px) and (max-width:1100px) {
- #home {column-gap:20px!important;padding-left:25px!important;padding-right:25px!important}
- #home > .stories {margin-left:-25px!important;margin-right:-25px!important}
+@media (min-width:900px) and (max-height:700px) {
+  #modal .story-full {height:94dvh;min-height:0}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .story-content {top:14%;bottom:84px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .app-choice {min-height:70px}
+  #modal .story-full:has(#nextQuestion:not(.hidden)) .app-choice img {width:36px;height:36px}
 }
 @media (max-width:899px) {
  .app {width:100%;max-width:460px}
