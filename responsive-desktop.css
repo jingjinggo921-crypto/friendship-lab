@@ -231,3 +231,18 @@
     pointer-events:none;
   }
 }
+
+/* Amanda's second story already contains its caption inside the JPEG.
+   Hide the duplicate HTML caption and raise the photograph's embedded lettering
+   above the reply bar, without modifying the underlying image asset. */
+#modal #amandaSecondCaption {display:none !important;}
+@media (min-width:900px) {
+  #modal .story-full:has(#amandaSecondCaption[style*="block"]) #storyBg {
+    transform:translateY(-68px) scale(1.05) !important;
+    transform-origin:center center;
+    object-position:center center;
+  }
+  #modal .story-full:has(#amandaSecondCaption[style*="block"]) .story-bottom {
+    z-index:32;
+  }
+}
